@@ -1,2 +1,10 @@
 @import "tailwindcss";
 @import "@nuxt/ui";
+
+@theme {
+    --ui-primary: oklch(80.516% 0.17034 74.306);
+}
+
+.dark {
+    --ui-primary: oklch(80.516% 0.17034 74.306);
+}
