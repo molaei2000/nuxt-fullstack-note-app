@@ -1,10 +1,27 @@
 <script setup lang="ts">
 definePageMeta({
+  layout: 'note-layout',
   middleware: ['auth']
 })
 </script>
 <template>
-  <div class="container mx-auto px-4">
-    <p class="text-primary">notes</p>
-  </div>
+
+  <UDashboardPanel id="home">
+    <template #header>
+      <UDashboardNavbar title="Notes" :ui="{ right: 'gap-3' }">
+        <template #leading>
+          <UDashboardSidebarCollapse />
+        </template>
+
+
+      </UDashboardNavbar>
+
+
+    </template>
+
+    <template #body>
+      <p>test</p>
+    </template>
+  </UDashboardPanel>
+
 </template>
