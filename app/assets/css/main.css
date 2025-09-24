@@ -3,8 +3,12 @@
 
 @theme {
     --ui-primary: oklch(80.516% 0.17034 74.306);
+    --ui-bg: oklch(21.033% 0.00588 285.832);
+    --ui-border-accented: oklch(37.032% 0.01192 285.76);
+    --input-bg: oklch(27.394% 0.00551 285.955);
 }
 
 .dark {
     --ui-primary: oklch(80.516% 0.17034 74.306);
+    --ui-border-accented: oklch(37.032% 0.01192 285.76);
 }
