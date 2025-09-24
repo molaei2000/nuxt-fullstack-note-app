@@ -9,6 +9,7 @@ export default defineEventHandler(async (event) => {
         data: {
             email: body.email,
             password: passwordHash,
+            salt,
         },
     });
     console.log(body);
