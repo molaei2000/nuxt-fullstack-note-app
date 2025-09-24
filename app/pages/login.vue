@@ -3,7 +3,8 @@ import * as z from 'zod'
 import type { FormSubmitEvent } from '@nuxt/ui'
 
 definePageMeta({
-  layout: 'auth'
+  layout: 'auth',
+  middleware: ['unauth-only']
 })
 
 const schema = z.object({
@@ -20,8 +21,18 @@ const state = reactive<Partial<Schema>>({
 
 const toast = useToast()
 async function onSubmit(event: FormSubmitEvent<Schema>) {
-  toast.add({ title: 'Success', description: 'The form has been submitted.', color: 'success' })
-  console.log(event.data)
+
+  try {
+    await $fetch('/api/login', {
+      method: 'POST',
+      body: event.data
+    })
+    toast.add({ title: 'Success', description: 'Logged in successfully', color: 'success' })
+    navigateTo('/')
+
+  } catch (error) {
+    toast.add({ title: 'Error', description: error?.response?._data?.message ?? 'error', color: 'error' })
+  }
 }
 </script>
 <template>
