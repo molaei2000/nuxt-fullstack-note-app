@@ -20,12 +20,19 @@ const state = reactive<Partial<Schema>>({
 
 const toast = useToast()
 async function onSubmit(event: FormSubmitEvent<Schema>) {
-  const res = await $fetch('/api/user', {
-    method: 'POST',
-    body: event.data
-  })
-  toast.add({ title: 'Success', description: 'The form has been submitted.', color: 'success' })
-  console.log(res)
+  try {
+    const res = await $fetch('/api/user', {
+      method: 'POST',
+      body: event.data
+    })
+    toast.add({ title: 'Success', description: 'Account created successfully', color: 'success' })
+    console.log(res);
+    navigateTo('/')
+
+  } catch (error) {
+    toast.add({ title: 'Error', description: error?.response?._data?.message ?? 'error', color: 'error' })
+  }
+
 }
 </script>
 <template>
