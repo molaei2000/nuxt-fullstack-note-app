@@ -20,8 +20,12 @@ const state = reactive<Partial<Schema>>({
 
 const toast = useToast()
 async function onSubmit(event: FormSubmitEvent<Schema>) {
+  const res = await $fetch('/api/user', {
+    method: 'POST',
+    body: event.data
+  })
   toast.add({ title: 'Success', description: 'The form has been submitted.', color: 'success' })
-  console.log(event.data)
+  console.log(res)
 }
 </script>
 <template>
@@ -38,7 +42,7 @@ async function onSubmit(event: FormSubmitEvent<Schema>) {
       </h3>
     </div>
     <div>
-      <UForm :schema="schema" :state="state" class="space-y-4" @submit="onSubmit">
+      <UForm :schema="schema" :state="state" class="space-y-4" @submit.prevent="onSubmit">
         <UFormField label="Email" name="email">
           <UInput v-model="state.email" autofocus placeholder="you@example.com" class="w-full" />
         </UFormField>

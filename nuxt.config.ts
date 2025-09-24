@@ -4,5 +4,5 @@ export default defineNuxtConfig({
     devtools: { enabled: true },
     css: ["~/assets/css/main.css"],
 
-    modules: ["@nuxt/eslint", "@nuxt/ui", "@nuxt/image"],
+    modules: ["@nuxt/eslint", "@nuxt/ui", "@nuxt/image", "@prisma/nuxt"],
 });
