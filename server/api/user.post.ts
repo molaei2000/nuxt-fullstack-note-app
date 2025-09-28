@@ -38,7 +38,6 @@ export default defineEventHandler(async (event) => {
             data: {
                 email: body.email,
                 password: passwordHash,
-                salt,
             },
         });
         const token = jwt.sign({ id: user.id }, config.jwtSecret);
