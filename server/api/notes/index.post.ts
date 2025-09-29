@@ -14,11 +14,15 @@ export default defineEventHandler(async (event) => {
             });
         }
 
-        const decodedToken = jwt.verify(token, config.jwtSecret);
+        const decodedToken = jwt.verify(
+            token,
+            config.jwtSecret
+        ) as CustomJwtPayload;
 
         const newNote = await prisma.note.create({
             data: {
                 text: "",
+                title: "new note",
                 userId: decodedToken.id,
             },
         });

@@ -50,6 +50,7 @@ export default defineEventHandler(async (event) => {
             },
             data: {
                 text: body.updatedNote,
+                title: body.updatedTitle,
             },
         });
         console.log(body);

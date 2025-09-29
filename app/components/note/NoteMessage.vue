@@ -14,9 +14,18 @@ const updatedNote = useState('updated-note', () => '')
   <div class="w-full flex flex-col">
 
     <div v-if="selectedNote">
-      <p class="text-[#929292] font-playfair">
-        {{ new Date(selectedNote.updatedAt).toLocaleDateString() }}
-      </p>
+      <UCard class="mb-4">
+        <div class="flex w-full justify-between">
+          <UFormField label="Title">
+            <UInput v-model="selectedNote.title" placeholder="Note Title" @input="debouncedFn" />
+          </UFormField>
+
+          <p class="text-[#929292] font-playfair">
+            {{ new Date(selectedNote.updatedAt).toLocaleDateString() }}
+          </p>
+        </div>
+      </UCard>
+
       <ClientOnly>
         <RobustTipTapEditor v-model="updatedNote" @update:model-value="() => {
           debouncedFn()

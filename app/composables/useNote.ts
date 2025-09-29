@@ -85,6 +85,7 @@ export const useNote = ({
         });
         console.log(index);
         notes.value.splice(index, 1);
+        selectedNote.value = null;
     }
 
     async function updateNote() {
@@ -95,6 +96,7 @@ export const useNote = ({
                 method: "PATCH",
                 body: {
                     updatedNote: updatedNote.value,
+                    updatedTitle: selectedNote.value.title,
                 },
             });
         } catch (err) {
