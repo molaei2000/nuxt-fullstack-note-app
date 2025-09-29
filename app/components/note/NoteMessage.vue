@@ -18,17 +18,16 @@ function logout() {
   <!-- note container -->
   <div class="w-full flex flex-col">
 
-    <div v-if="selectedNote" class="max-w-[437px] mx-auto w-full flex-grow flex flex-col">
+    <div v-if="selectedNote" class="mx-4 w-full flex-grow flex flex-col">
       <p class="text-[#929292] font-playfair">
         {{ new Date(selectedNote.updatedAt).toLocaleDateString() }}
       </p>
-      <textarea ref="textarea" v-model="updatedNote" name="note" id="note"
-        class="text-[#D4D4D4] my-4 font-playfair w-full bg-transparent focus:outline-none resize-none flex-grow" @input="
-          () => {
-            debouncedFn()
-            selectedNote!.text = updatedNote
-          }
-        " />
+      <ClientOnly>
+        <TipTapEditor v-model="updatedNote" @update:model-value="() => {
+          debouncedFn()
+          selectedNote!.text = updatedNote
+        }" />
+      </ClientOnly>
 
     </div>
 

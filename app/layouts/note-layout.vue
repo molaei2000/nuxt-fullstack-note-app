@@ -35,7 +35,7 @@ const links = [[{
 
       <template #default="{ collapsed }">
 
-        <NoteList />
+        <NoteList :collapsed="collapsed" />
 
         <UNavigationMenu :collapsed="collapsed" :items="links[0]" orientation="vertical" tooltip class="mt-auto" />
       </template>

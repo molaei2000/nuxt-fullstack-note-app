@@ -1,5 +1,9 @@
 <script setup lang="ts">
 
+
+const { collapsed } = defineProps<{
+  collapsed?: boolean
+}>()
 const { selectedNote, todaysNotes, yesterdaysNotes, earlierNotes, getNotes, setNote } = useNote({})
 
 onMounted(async () => {
@@ -9,7 +13,10 @@ onMounted(async () => {
 </script>
 
 <template>
-  <div class="flex flex-col gap-4 px-4 overflow-y-auto">
+  <div class="flex flex-col gap-4 overflow-y-auto overflow-x-hidden" :class="{
+    'px-4': !collapsed,
+    'px-0': collapsed,
+  }">
     <section>
       <!-- today main container -->
       <div v-if="todaysNotes.length" class="flex-grow">
