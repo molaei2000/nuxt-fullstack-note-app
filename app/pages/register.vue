@@ -28,7 +28,8 @@ async function onSubmit(event: FormSubmitEvent<Schema>) {
     })
     toast.add({ title: 'Success', description: 'Account created successfully', color: 'success' })
     console.log(res);
-    navigateTo('/')
+    navigateTo('/notes')
+
 
   } catch (error) {
     toast.add({ title: 'Error', description: error?.response?._data?.message ?? 'error', color: 'error' })

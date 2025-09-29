@@ -28,7 +28,7 @@ async function onSubmit(event: FormSubmitEvent<Schema>) {
       body: event.data
     })
     toast.add({ title: 'Success', description: 'Logged in successfully', color: 'success' })
-    navigateTo('/')
+    navigateTo('/notes')
 
   } catch (error) {
     toast.add({ title: 'Error', description: error?.response?._data?.message ?? 'error', color: 'error' })
@@ -49,7 +49,7 @@ async function onSubmit(event: FormSubmitEvent<Schema>) {
       </h3>
     </div>
     <div>
-      <UForm :schema="schema" :state="state" class="space-y-4" @submit="onSubmit">
+      <UForm :schema="schema" :state="state" class="space-y-4" @submit.prevent="onSubmit">
         <UFormField label="Email" name="email">
           <UInput v-model="state.email" autofocus placeholder="you@example.com" class="w-full" />
         </UFormField>
@@ -59,7 +59,7 @@ async function onSubmit(event: FormSubmitEvent<Schema>) {
         </UFormField>
 
         <UButton block type="submit" class="rounded-full">
-          Sign Up
+          Log in
           <Icon name="tabler:arrow-right" />
         </UButton>
       </UForm>

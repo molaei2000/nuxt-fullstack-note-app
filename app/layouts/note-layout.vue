@@ -3,23 +3,34 @@ import type { NavigationMenuItem } from '@nuxt/ui'
 
 const open = ref(false)
 
-const links = [[{
-  label: 'Github',
-  icon: 'lucide-github',
-  to: 'https://github.com/molaei2000',
-  target: '_blank'
-}, {
-  label: 'LinkedIn',
-  icon: 'lucide-linkedin',
-  to: 'https://www.linkedin.com/in/mohammad-mahdi-molaei/',
-  target: '_blank'
-},
-{
-  label: 'Source Code',
-  icon: 'lucide-code',
-  to: 'https://github.com/molaei2000/nuxt-fullstack-note-app',
-  target: '_blank'
-}
+const links = [[
+  {
+    label: 'Github',
+    icon: 'lucide-github',
+    to: 'https://github.com/molaei2000',
+    target: '_blank'
+  }, {
+    label: 'LinkedIn',
+    icon: 'lucide-linkedin',
+    to: 'https://www.linkedin.com/in/mohammad-mahdi-molaei/',
+    target: '_blank'
+  },
+  {
+    label: 'Source Code',
+    icon: 'lucide-code',
+    to: 'https://github.com/molaei2000/nuxt-fullstack-note-app',
+    target: '_blank'
+  },
+  {
+    label: 'Logout',
+    icon: 'lucide-log-out',
+    class: 'bg-red-500 text-white rounded-md',
+    onSelect: () => {
+      const jwtCookie = useCookie('NoteNestJWT')
+      jwtCookie.value = null
+      navigateTo('/login')
+    }
+  },
 ]] satisfies NavigationMenuItem[][]
 
 
