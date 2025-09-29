@@ -3,6 +3,8 @@ definePageMeta({
   layout: 'note-layout',
   middleware: ['auth']
 })
+
+const { createNewNote, deleteNote, selectedNote } = useNote({})
 </script>
 <template>
 
@@ -12,15 +14,20 @@ definePageMeta({
         <template #leading>
           <UDashboardSidebarCollapse />
         </template>
+        <template #default>
 
-
+          <UButton @click="createNewNote">
+            <Icon name="tabler-pencil" />
+            <span>Create Note</span>
+          </UButton>
+        </template>
+        <template #right>
+          <UButton v-if="selectedNote" variant="outline" color="error" icon="tabler-trash" @click="deleteNote" />
+        </template>
       </UDashboardNavbar>
-
-
     </template>
-
     <template #body>
-      <p>test</p>
+      <NoteMessage />
     </template>
   </UDashboardPanel>
 

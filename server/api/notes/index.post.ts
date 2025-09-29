@@ -10,23 +10,24 @@ export default defineEventHandler(async (event) => {
         if (!token) {
             throw createError({
                 statusCode: 401,
-                statusMessage: "Not authorized to access notes",
+                statusMessage: "Not authorized to update",
             });
         }
 
-        const decodedToken = jwt.verify(
-            token,
-            config.jwtSecret
-        ) as CustomJwtPayload;
+        const decodedToken = jwt.verify(token, config.jwtSecret);
 
-        const notes = await prisma.note.findMany({
-            where: {
+        const newNote = await prisma.note.create({
+            data: {
+                text: "",
                 userId: decodedToken.id,
             },
         });
 
-        return notes;
+        return newNote;
     } catch (err) {
-        console.log(err);
+        throw createError({
+            statusCode: 500,
+            statusMessage: "Could not verify jwt",
+        });
     }
 });
