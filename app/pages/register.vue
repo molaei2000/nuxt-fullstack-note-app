@@ -40,7 +40,8 @@ async function onSubmit(event: FormSubmitEvent<Schema>) {
 <template>
 
   <div class="flex flex-col h-full w-3/4 mx-auto space-y-4 justify-center">
-    <h1 class="font-bold">Note<span class="text-primary">Nest</span></h1>
+    <AppLogo />
+
     <div class="mb-8">
       <h2 class="font-bold mb-2.5">
         Sign up for a free account

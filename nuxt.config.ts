@@ -8,5 +8,12 @@ export default defineNuxtConfig({
         jwtSecret: process.env.JWT_SECRET,
     },
 
-    modules: ["@nuxt/eslint", "@nuxt/ui", "@nuxt/image", "@prisma/nuxt", "@vueuse/nuxt"],
+    modules: [
+        "@nuxt/eslint",
+        "motion-v/nuxt",
+        "@nuxt/ui",
+        "@nuxt/image",
+        "@prisma/nuxt",
+        "@vueuse/nuxt",
+    ],
 });

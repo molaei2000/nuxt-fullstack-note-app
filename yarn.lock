@@ -3421,6 +3421,11 @@ clone@^2.1.2:
   resolved "https://registry.yarnpkg.com/clone/-/clone-2.1.2.tgz#1b7f4b9f591f1e8f83670401600345a02887435f"
   integrity sha512-3Pe/CF1Nn94hyhIYpjtiLhdCoEoz0DqQ+988E9gmeEdQZlojxnOb74wctFyuwWQHzqyf9X7C7MG8juUpqBJT8w==
 
+clsx@^2.1.1:
+  version "2.1.1"
+  resolved "https://registry.yarnpkg.com/clsx/-/clsx-2.1.1.tgz#eed397c9fd8bd882bfb18deab7102049a2f32999"
+  integrity sha512-eYm0QWBtUrBWZWG0d386OGAw16Z995PiOVo2B7bjWSbHedGl5e0ZWaq65kOGgUSNesEIDkB9ISbTg/JK9dhCZA==
+
 cluster-key-slot@^1.1.0:
   version "1.1.2"
   resolved "https://registry.yarnpkg.com/cluster-key-slot/-/cluster-key-slot-1.1.2.tgz#88ddaa46906e303b5de30d3153b7d9fe0a0c19ac"
@@ -5639,6 +5644,15 @@ motion-v@^1.7.1:
   version "1.7.1"
   resolved "https://registry.yarnpkg.com/motion-v/-/motion-v-1.7.1.tgz#0abd43fcfdca594d36a2d5bbddea6a08678814db"
   integrity sha512-B22fYcHGx05moUtoIH0ZP/JzeacGOHzLkLmMTKU9tRB+uVMSfgqiXVzZb602qiG1ap8W7TZ+5RD5R3MmODu9oA==
+  dependencies:
+    framer-motion "12.23.12"
+    hey-listen "^1.0.8"
+    motion-dom "12.23.12"
+
+motion-v@^1.7.2:
+  version "1.7.2"
+  resolved "https://registry.yarnpkg.com/motion-v/-/motion-v-1.7.2.tgz#90c51269ce2107b2f640cfb47037f8e1df4b810a"
+  integrity sha512-h2qfae2LUMLw5KIjQF5cT+r0MrLwP4AFDMOisyp25x/oDI3PHgjLHJrhHx77q8iBNegk4llt5p6deC12EJ5fvQ==
   dependencies:
     framer-motion "12.23.12"
     hey-listen "^1.0.8"
